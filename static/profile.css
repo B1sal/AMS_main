@@ -1,0 +1,153 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #7e70ff;
+}
+
+.wrapper {
+  width: 680px;
+  margin-top: 80px;
+  text-align: center;
+  background: #fff;
+  border-radius: 8px;
+  padding: 25px;
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.3);
+}
+
+.img-logo img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  position: relative;
+  top: -100px;
+  box-shadow: 0px 10px 15px #7e70ff;
+}
+
+.wrapper h3 {
+  margin-top: -80px;
+  color: purple;
+}
+
+.wrapper p {
+  margin-top: 5px;
+  margin-bottom: 25px;
+}
+
+.user-info{
+  margin-top: 10px;
+}
+
+.userdata--full ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.userdata--full ul li {
+  justify-content: center;
+  font-size: 15px;
+}
+
+.userdata--full span {
+  font-weight: 600;
+  color: rgb(43, 39, 39);
+  display: block;
+  text-align: center;
+}
+
+.userdata--full ul li:first-child {
+  padding: 15px;
+  border-right: 2px solid #adadad;
+}
+
+.userdata--full ul li:nth-child(2) {
+  padding: 15px;
+  text-align: center;
+  border-right: 2px solid #adadad;
+}
+
+.user-info ul li:nth-child(3) {
+  padding: 15px;
+  border-right: 2px solid #adadad;
+}
+
+.userdata--full ul li:last-child {
+  padding: 15px;
+}
+
+.contact-info h4 {
+  margin-top: 30px;
+}
+
+.btn {
+  margin-top: 40px;
+  
+}
+
+.btn button {
+  text-decoration: none;
+  position: relative;
+  left: 8rem;
+  bottom: 2.1rem;
+  width: 180px;
+  height: 50px;
+  border: none;
+  padding: 10px;
+  outline: none;
+  color: white;
+  cursor: pointer;
+  font-size:medium;
+  font-weight: 600;
+  border-radius: 4px;
+  box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.25);
+}
+
+
+.edit {
+  background: blueviolet;
+}
+
+
+
+.edit:hover {
+  box-shadow: 0px 15px 20px rgb(138, 43, 226);
+  transform: translateY(-7px);
+}
+
+
+.btn--upload {
+    
+    padding: 10px;
+    position: relative;
+    right: 8rem;
+    top: 1rem;
+    width: 180px;
+    height: 50px;
+    font-size: medium;
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+    border-radius: 4px;
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.25);
+    background: #1da0f2;
+    display: inline-block; 
+    
+    
+}
+
+.btn--upload:hover {
+    box-shadow: 0px 15px 20px #1da1f2;
+    transform: translateY(-7px);
+}

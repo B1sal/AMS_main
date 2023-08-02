@@ -1,0 +1,65 @@
+{% extends "core/base.html" %}
+{% load custom_filters %}
+{% load static %}
+{% block link %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css" integrity="sha384-QYIZto+st3yW+o8+5OHfT6S482Zsvz2WfOzpFSXMF9zqeLcFV0/wlZpMtyFcZALm" crossorigin="anonymous">
+<link rel="stylesheet" href="{% static 'student_list.css' %}">
+{% endblock link %}
+
+{% block body %}
+<div class="main">
+    <h1 class="h1">Machine Learning Attendance
+    <span class="h1-span"> {{today_date.day}} {{month}}  {{today_date.year}}</span></h1>
+    <div class="stu-table">
+        <table>
+            <thead>
+                <tr>
+                    <th class="name-col-1">Student Name</th>
+                    {% for date in att_report %}
+                        <th>{{ date.day }}</th>
+                    {% endfor %}
+                    <th class="missed-col">Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <form method="POST">
+                    {% csrf_token %} 
+                {% for student in student_list %}
+                    <tr class="student-col">
+                        <td class="name-col">{{ student.student.name }} </td>
+                        {% for date in att_report %}
+                            {% with date_id=date|date:"Y-m-d" %}
+                            <td class="status-col">
+                                {% with student_id_date=student.student.id|stringformat:"s"|add:"_"|add:date_id %}
+                                    {% if student_status|get_attendance_status:student_id_date %}
+                                     {{  student_status|get_attendance_status:student_id_date }}
+                                    {% endif %}
+                                    {% endwith %}
+                                {% endwith %}
+                            </td>
+                        {% endfor %}
+                        <td class="attend-col"><select name="{{student.student.id}}">
+                            <option value="A"><button>Absent</button></option>
+                            <option value="P"><button>Present</button></option>
+                        </select></td>
+                    </tr>
+                {% endfor %}
+                <tr>
+                    <td class="name-col"></td>
+                    <td class="attend-col"></td>
+                    <td class="attend-col"></td>
+                    <td class="attend-col"></td>
+                    <td class="attend-col"></td>
+                    <td class="attend-col"></td>
+                    <td class="attend-col"></td>
+                    <td class="attend-col"></td>
+                    <td class="attend-col"><button type="submit">Submit</button></td>
+                </tr>
+                </form>
+            </tbody>
+        </table>
+    </div>
+    </div>
+
+{% endblock body %}
+
